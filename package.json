@@ -1,12 +1,23 @@
 {
   "name": "rest-rant",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aloeminium108/REST-Rant.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Aloeminium108/REST-Rant/issues"
+  },
+  "homepage": "https://github.com/Aloeminium108/REST-Rant#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
