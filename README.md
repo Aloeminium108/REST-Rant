@@ -21,3 +21,9 @@ REST-Rant is an app where users can review restaurants.
 # Planning
 
 ## User Stories
+
+1. As a user, I want all possible URLs to take me to a visually appealing page (No ugly blank 404 pages)
+2. As a user, I want to be able to view a list of places
+3. As a user, I want to be able to view details about specific places
+4. As a user, I want to be able to post rants about places I have visited
+5. As a user, I want to be able to delete rants about places that I no longer want posted online
