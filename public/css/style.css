@@ -1,17 +1,17 @@
 body {
-  background-color: lightblue;
+  background-color: #300080;
   text-align: center;
 }
 
 main {
   margin-right: 20px;
   margin-left: 20px;
-  background-color: white;
+  background-color: #303040;
 }
 
 h1 {
   text-align: center;
-  color: cornflowerblue;
+  color: #6000ff;
 }
 
 img {
@@ -20,7 +20,7 @@ img {
 }
 
 nav {
-  background-color: cornflowerblue;
+  background-color: #6000ff;
   padding: 10px;
 }
 
@@ -42,4 +42,9 @@ nav a {
 nav a:hover {
   color: pink;
   text-decoration: none;
+}
+
+input {
+  width: 30%;
+  margin: 1%;
 }
