@@ -2,11 +2,18 @@ const mongoose = require('mongoose')
 
 const placeSchema = new mongoose.Schema({
     name: { type: String, required: true },
-    pic: String,
+    pic: { 
+        type: String,
+        default: 'http://placekitten.com/350/350'
+    },
     cuisines: { type: String, required: true },
     city: { type: String, default: 'Anytown' },
     state: { type: String, default: 'USA' },
-    founded: Number
+    founded: {
+        type: Number,
+        min: [803, 'Older than Stiftskeller? I don\'t think so!'],
+        max: [new Date().getFullYear(), 'Only restaurants that are currently open are allowed.']
+    }
 })
 
 placeSchema.methods.showEstablished = function () {
