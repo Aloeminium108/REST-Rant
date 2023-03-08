@@ -2,6 +2,28 @@ const React = require('react')
 const Def = require('../default')
 
 function show (data) {
+
+    let comments = (
+        <h3 className='inactive'>
+            No comments yet!
+        </h3>
+    )
+
+    if (data.place.comments.length) {
+        comments = data.place.comments.map((comment, index) => {
+        return (
+            <div className="border" key={`comment-${index}`}>
+                <h2 className="rant">{comment.rant ? 'Rant! >:O' : 'Rave! :))'}</h2>
+                <h4>{comment.content}</h4>
+                <h3>
+                    <stong>- {comment.author}</stong>
+                </h3>
+                <h4>Rating: {comment.stars}</h4>
+            </div>
+        )
+        })
+    }
+
     return (
         <Def>
           <main>
@@ -23,20 +45,40 @@ function show (data) {
             </div>
             <div>
                 <h2>Comments</h2>
-                <p>No comments available</p>
+                {comments}
             </div>
 
             <div>
-                <a href={`/places/${data.id}/edit`} className="btn btn-warning"> 
+                <a href={`/places/${data.place.id}/edit`} className="btn btn-warning"> 
                     Edit
                 </a> 
             </div>
-            <form method='POST' action={`/places/${data.id}?_method=DELETE`}> 
+            <form method='POST' action={`/places/${data.place.id}?_method=DELETE`}> 
                 <button type="submit" className="btn btn-danger">
                     Delete
                 </button>
             </form>     
 
+            <h1>Add a New Comment</h1>
+            <form method="POST" action={`/places/${data.place.id}/comment`} >
+                <div className="form-group">
+                    <label htmlFor="name">Your Name</label>
+                    <input type="text" className="form-control" id="author" name="author" required />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="pic">Content</label>
+                    <input type="textarea" className="form-control" id="content" name="content" />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="city">Star Rating</label>
+                    <input type="number" step={0.5} className="form-control" id="stars" name="stars" />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="state">Rant?</label>
+                    <input type="checkbox" id="rant" name="rant" />
+                </div>
+                <input className="btn btn-primary" type="submit" defaultValue="Add Comment" />
+            </form>
 
           </main>
         </Def>
