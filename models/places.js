@@ -13,7 +13,8 @@ const placeSchema = new mongoose.Schema({
         type: Number,
         min: [803, 'Older than Stiftskeller? I don\'t think so!'],
         max: [new Date().getFullYear(), 'Only restaurants that are currently open are allowed.']
-    }
+    },
+    comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }]
 })
 
 placeSchema.methods.showEstablished = function () {
