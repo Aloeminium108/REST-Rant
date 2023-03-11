@@ -24,6 +24,29 @@ function show (data) {
         })
     }
 
+    let rating = (
+        <h3 className='inactive'>
+            Not yet rated
+        </h3>
+    )
+
+    if (data.place.comments.length) {
+        let sumRatings = data.place.comments.reduce((acc, comment) => acc + comment.stars, 0)
+        let averageRating = sumRatings / data.place.comments.length 
+        averageRating = Math.round(averageRating)
+
+        let stars = ''
+        for (let i = 0; i < averageRating; i++) {
+            stars += '*'
+        }
+
+        rating = (
+            <h3>
+                {stars} stars
+            </h3>
+        )
+    }
+
     return (
         <Def>
           <main>
@@ -36,7 +59,7 @@ function show (data) {
             </div>
             <div>
                 <h2>Rating</h2>
-                <p>No rating available</p>
+                {rating}
             </div>
             <div>
                 <h2>Description</h2>
